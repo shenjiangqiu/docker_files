@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  phpexecutor:
+    image: nginx:alpine
+    environment:
+      - VIRTUAL_HOST=app.thesjq.com
+      - LETSENCRYPT_HOST=app.thesjq.com
+      - LETSENCRYPT_EMAIL=ivy22233qiu@live.com
+      - PUID=33
+      - PGID=33
+    networks:
+      - nginx_reverse_proxy_proxy-tier
+    volumes:
+      - ${PWD}/html:/var/www/html
+      - /run/php-fpm/php-fpm.sock:/run/php-fpm/php-fpm.sock
+      - ${PWD}/web/nginx.conf:/etc/nginx/nginx.conf
+networks:
+  nginx_reverse_proxy_proxy-tier:
+    external: true

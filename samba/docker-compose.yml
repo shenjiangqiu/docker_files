@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  samba:
+    image: dperson/samba
+    environment:
+      TZ: 'EST5EDT'
+    networks:
+      - default
+    ports:
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "445:445/tcp"
+    read_only: true
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - /mnt/data/nextcloud_data_docker_compose/sjq/files:/files
+    command: '-s "Files;/files;yes;no;no;sjq;sjq;sjq;sjqfile" -u "sjq;qiuqiu123Q;82;sjq;82"'
+
+networks:
+  default:

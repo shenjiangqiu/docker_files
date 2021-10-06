@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  bedrock2006:
+    image: itzg/minecraft-bedrock-server
+    environment:
+      EULA: "TRUE"
+      GAMEMODE: survival
+      DIFFICULTY: normal
+      SERVER_NAME: 2006B
+      LEVEL_NAME: good place
+    ports:
+      - 19132:19132/udp
+#      - 39132:39132
+#      - 39132:39132/udp
+#      - 39133:39133
+#      - 39133:39133/udp
+    volumes:
+      - bds2006:/data
+    stdin_open: true
+    tty: true
+    sysctls:
+      net.ipv4.ip_local_port_range: 39132 39133
+
+volumes:
+  bds2006: {}

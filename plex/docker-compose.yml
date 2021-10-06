@@ -1,0 +1,27 @@
+version: "2.1"
+services:
+  plex:
+    image: lscr.io/linuxserver/plex
+    container_name: plex
+    network_mode: host
+    # networks:
+    #   - nginx_reverse_proxy_proxy-tier
+    environment:
+      - PUID=82
+      - PGID=82
+      - VERSION=docker
+      - PLEX_CLAIM=claim-QDjerR7r48xASzmSYTLN
+    expose:
+      - 32400
+    volumes:
+
+      - /mnt/data/nextcloud_data_docker_compose/sjq/files/config:/config
+      - /mnt/data/nextcloud_data_docker_compose/sjq/files/tv:/tv
+      - /mnt/data/nextcloud_data_docker_compose/sjq/files/movie:/movies
+      - /mnt/data/nextcloud_data_docker_compose/sjq/files/zgg:/porn
+      - /mnt/data/nextcloud_data_docker_compose/sjq/files/public:/public
+
+    restart: unless-stopped
+networks:
+  nginx_reverse_proxy_proxy-tier:
+    external: true

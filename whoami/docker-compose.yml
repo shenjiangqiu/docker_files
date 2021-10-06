@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  gateway:
+    image: jwilder/whoami
+    environment:
+    - VIRTUAL_HOST=whoami.local
+    networks:
+      - nginx_reverse_proxy_proxy-tier
+  app1:
+    networks:
+      - nginx_reverse_proxy_proxy-tier
+    image: jwilder/whoami
+
+  app2:
+    networks:
+      - nginx_reverse_proxy_proxy-tier
+    image: jwilder/whoami
+networks:
+  nginx_reverse_proxy_proxy-tier:
+    external: true
