@@ -1,0 +1,30 @@
+version: "3"
+services:
+  jellyfin:
+    image: linuxserver/jellyfin
+    user: 82:82
+    group_add:
+      - 989
+    expose:
+      - 8096
+    environment:
+      - VIRTUAL_HOST=jellyfin.thesjq.com
+      - LETSENCRYPT_HOST=jellyfin.thesjq.com
+      - LETSENCRYPT_EMAIL=ivy22233qiu@live.com
+    volumes:
+      - /mnt/data/owncloud/files/files/sjq/files/jellyfin_config:/config
+      - /tmp/jellyfin/cache:/cache
+      - /mnt/data/owncloud/files/files/sjq/files/movie:/movie
+      - /mnt/data/owncloud/files/files/sjq/files/tv:/tv
+      - /mnt/data/owncloud/files/files/sjq/files/public:/public
+
+    devices:
+      # VAAPI Devices
+      - /dev/dri/renderD128:/dev/dri/renderD128
+      - /dev/dri/card0:/dev/dri/card0
+    networks:
+      - nginx_reverse_proxy_proxy-tier
+networks:
+  nginx_reverse_proxy_proxy-tier:
+    external: true
+

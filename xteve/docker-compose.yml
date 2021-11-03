@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  xteve:
+    image: alturismo/xteve_guide2go
+    environment:
+    - TZ="America/Newyork"
+    network_mode: host
+    volumes:
+      - /mnt/data/owncloud/files/files/sjq/files/xteve/_.xtve:/root/.xteve:rw
+      - /mnt/data/owncloud/files/files/sjq/files/xteve/_config:/config:rw
+      - /mnt/data/owncloud/files/files/sjq/files/xteve/_guide2go:/guide2go:rw
+      - /mnt/data/owncloud/files/files/sjq/files/xteve/_tmp:/tmp/xteve:rw
+      - /mnt/data/owncloud/files/files/sjq/files/xteve/_tvh:/TVH

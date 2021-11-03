@@ -7,19 +7,22 @@ services:
     # networks:
     #   - nginx_reverse_proxy_proxy-tier
     environment:
-      - PUID=82
-      - PGID=82
+      - PUID=33
+      - PGID=33
       - VERSION=docker
       - PLEX_CLAIM=claim-QDjerR7r48xASzmSYTLN
     expose:
       - 32400
+      - 33400
     volumes:
 
-      - /mnt/data/nextcloud_data_docker_compose/sjq/files/config:/config
-      - /mnt/data/nextcloud_data_docker_compose/sjq/files/tv:/tv
-      - /mnt/data/nextcloud_data_docker_compose/sjq/files/movie:/movies
-      - /mnt/data/nextcloud_data_docker_compose/sjq/files/zgg:/porn
-      - /mnt/data/nextcloud_data_docker_compose/sjq/files/public:/public
+      - /mnt/data/owncloud/files/files/sjq/files/config:/config
+      - /mnt/data/owncloud/files/files/sjq/files/tv:/tv
+      - /mnt/data/owncloud/files/files/sjq/files/movie:/movies
+      - /mnt/data/owncloud/files/files/sjq/files/zgg:/porn
+      - /mnt/data/owncloud/files/files/sjq/files/public:/public
+      - /mnt/data/owncloud/files/files/sjq/files/backup:/backup
+      - /mnt/data/owncloud/files/files/sjq/files/:/allfiles
 
     restart: unless-stopped
 networks:

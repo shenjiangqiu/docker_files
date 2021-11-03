@@ -6,8 +6,8 @@ services:
     container_name: aria2c
     image: p3terx/aria2-pro
     environment:
-      - PUID=82
-      - PGID=82
+      - PUID=33
+      - PGID=33
       - UMASK_SET=022
       - RPC_SECRET=qiuqiu123
       - RPC_PORT=6800
@@ -19,7 +19,7 @@ services:
       - TZ=America/New_York
     volumes:
       - ${PWD}/aria2-config:/config
-      - /mnt/data/nextcloud_data_docker_compose/sjq/files/download:/downloads
+      - /mnt/data/owncloud/files/files/sjq/files/download:/downloads
 # If you use host network mode, then no port mapping is required.
 # This is the easiest way to use IPv6 networks.
     network_mode: host

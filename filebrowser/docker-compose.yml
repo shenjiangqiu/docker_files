@@ -3,11 +3,11 @@ version: "3"
 services:
   filebrowser:
     image: hurlenko/filebrowser
-    user: 82:82
+    user: 33:33
     expose:
       - 8080
     volumes:
-      - /mnt/data/nextcloud_data_docker_compose/sjq/files:/data
+      - /mnt/data/owncloud/files/files/sjq/files:/data
       - ${PWD}/CONFIG_DIR:/config
     environment:
       - VIRTUAL_PORT=8080

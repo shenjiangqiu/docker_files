@@ -6,7 +6,7 @@ services:
     build: .
     container_name: samba
     environment:
-      TZ: 'CST6CDT'
+      TZ: 'EST5EDT'
     networks:
       - default
     ports:
